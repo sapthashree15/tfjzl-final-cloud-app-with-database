@@ -7,28 +7,6 @@
 </head>
 
 <body>
-    <!-- Navigation bar without authentication logic -->
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="{% url 'onlinecourse:index' %}">Home</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Page content -->
-    <div class="container-fluid">
-        <h2>{{ course.name }}</h2>
-        
-        <!-- Lessons displayed without Bootstrap cards -->
-        <ul>
-            {% for lesson in course.lesson_set.all %}
-                <li>
-                    <strong>Lesson {{ lesson.order|add:1 }}: {{ lesson.title }}</strong><br>
-                    {{ lesson.content }}
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+   
 </body>
 </html>
