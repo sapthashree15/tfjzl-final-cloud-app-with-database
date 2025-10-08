@@ -106,8 +106,13 @@ class Question(models.Model):
         return all_correct.issubset(selected)
 
 
-
 # ✅ Choice model
+class Choice(models.Model):
+    
+
+    def __str__(self):
+        return self.choice_text
+
 
 
 
