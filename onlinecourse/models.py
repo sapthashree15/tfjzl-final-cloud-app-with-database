@@ -94,14 +94,6 @@ class Enrollment(models.Model):
 class Question(models.Model):
     question_text = models.TextField()
     grade = models.IntegerField(default=1)
-
-
-    # Method to check if learner got the score
-  
-        all_correct = set(self.choice_set.filter(is_correct=True).values_list('id', flat=True))
-        selected = set(selected_choice_ids)
-        return all_correct.issubset(selected)
-
     
 
 
