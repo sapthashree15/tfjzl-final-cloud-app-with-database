@@ -106,14 +106,10 @@ class Question(models.Model):
         return all_correct.issubset(selected)
 
 
-# ✅ Choice model
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=100)
-    is_correct = models.BooleanField(default=False)
+# ✅ Submission model
+class Submission(models.Model):
+    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
+    choices = models.ManyToManyField(Choice)
 
     def __str__(self):
-        return self.choice_text
-
-
-# ✅ Submission model
+        return f"Submission {self.id} for enrollment {self.enrollment.id}"
