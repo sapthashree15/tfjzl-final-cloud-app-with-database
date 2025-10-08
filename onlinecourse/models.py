@@ -92,8 +92,9 @@ class Enrollment(models.Model):
 
 # ✅ Question model
 class Question(models.Model):
-  
-    
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    question_text = models.TextField()
+    grade = models.IntegerField(default=1)    
 
 
 # ✅ Choice model
