@@ -92,8 +92,7 @@ class Enrollment(models.Model):
 
 # ✅ Question model
 class Question(models.Model):
-    question_text = models.TextField()
-    grade = models.IntegerField(default=1)
+  
     
 
 
