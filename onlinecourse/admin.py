@@ -1,11 +1,6 @@
 from django.contrib import admin
 # <HINT> Import any new Models here
-from .models import Lesson, Question, Choice,
-
-class QuestionInline(admin.StackedInline):
-    model = Question
-    extra = 2
-
+from .models import Lesson
 
 
 # <HINT> Register Question and Choice models here
