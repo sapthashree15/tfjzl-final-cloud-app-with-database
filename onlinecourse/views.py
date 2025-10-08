@@ -116,22 +116,3 @@ def extract_answers(request):
     return submitted_answers
 
 
-# Submit view
-def submit(request, course_id):
-    user = request.user
-    course = get_object_or_404(Course, pk=course_id)
-
-    enrollment = Enrollment.objects.get(user=user, course=course)
-    submission = Submission.objects.create(enrollment=enrollment)
-
-    selected_choices = extract_answers(request)
-    for choice_id in selected_choices:
-        choice = get_object_or_404(Choice, pk=choice_id)
-        submission.choices.add(choice)
-
-    submission.save()
-
-    return HttpResponseRedirect(
-        reverse('onlinecourse:show_exam_result', args=(course_id, submission.id))
-    )
-
