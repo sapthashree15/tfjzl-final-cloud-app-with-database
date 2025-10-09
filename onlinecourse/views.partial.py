@@ -124,10 +124,7 @@ def submit(request, course_id):
     enrollment = Enrollment.objects.get(user=user, course=course)
     submission = Submission.objects.create(enrollment=enrollment)
 
-    selected_choices = extract_answers(request)
-    for choice_id in selected_choices:
-        choice = get_object_or_404(Choice, pk=choice_id)
-        submission.choices.add(choice)
+   
 
     submission.save()
 
@@ -146,12 +143,7 @@ def show_exam_result(request, course_id, submission_id):
     total_score = 0
     possible_score = 0
 
-    questions = course.question_set.all()
-    for question in questions:
-        possible_score += question.grade
-        if question.is_get_score(selected_ids):
-            total_score += question.grade
-
+   
     context = {
         'course': course,
         'selected_ids': selected_ids,
