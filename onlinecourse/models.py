@@ -112,14 +112,9 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=100)
     is_correct = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.choice_text
 
 
 # ✅ Submission model
 class Submission(models.Model):
     enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
-
-    def __str__(self):
-        return f"Submission {self.id} for enrollment {self.enrollment.id}"
