@@ -109,7 +109,9 @@ class Question(models.Model):
 # ✅ Choice model
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-   
+    choice_text = models.CharField(max_length=100)
+    is_correct = models.BooleanField(default=False)
+
     def __str__(self):
         return self.choice_text
 
